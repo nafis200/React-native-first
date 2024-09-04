@@ -2,6 +2,8 @@
 import { View, Text,SafeAreaView,ScrollView, TextInput, Button,Pressable,Switch } from 'react-native'
 import React,{useState} from 'react'
 
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 const Form = () => {
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
@@ -49,9 +51,11 @@ const Form = () => {
         }} style={[{backgroundColor:'black'},(email.length === 0 || password.length < 6) && {opacity:0.5}]}
         disabled={email.length === 0 || password.length < 6}
         >
-            <Text style={{color:'white',textAlign:'center',padding:10,borderRadius:40}}>Submit</Text>
+            <Text style={{color:'white',textAlign:'center',padding:10,borderRadius:40}}>
+              Submit
+            </Text>
         </Pressable>
-        
+        <FontAwesomeIcon icon={faCheck} style={{color:'white',marginLeft:170}} />
       </ScrollView>
     </SafeAreaView>
   )
