@@ -14,6 +14,7 @@ const Input = () => {
         }}
         value={text}
         placeholder='enter your name'
+        
       />
       <TextInput
         style={styles.input}
