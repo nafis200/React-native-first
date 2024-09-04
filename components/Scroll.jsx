@@ -4,7 +4,9 @@ import React from 'react';
 const Scroll = () => {
   return (
     <SafeAreaView> 
-      <ScrollView showsVerticalScrollIndicator={false} horizontal={true}>
+      <ScrollView showsVerticalScrollIndicator={true} horizontal={false} showsHorizontalScrollIndicator={true}
+       style={{marginTop:100} }
+      >
         <Image
           source={require('../assets/images/66907-images-logo-google-free-download-png-hd.png')}
           style={{ height: 100, width: 300 }}
