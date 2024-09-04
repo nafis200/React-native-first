@@ -1,5 +1,5 @@
 
-import { View, Text,SafeAreaView,ScrollView, TextInput } from 'react-native'
+import { View, Text,SafeAreaView,ScrollView, TextInput, Button,Pressable } from 'react-native'
 import React,{useState} from 'react'
 
 const Form = () => {
@@ -23,6 +23,19 @@ const Form = () => {
              setPassword(x)
         }}
         />
+        <View style={{marginTop:10,padding:10}}>
+        <Button onPress={()=>{
+             console.log(email,password)
+        }} title='submit' color={'red'}
+        ></Button>
+        </View>
+
+        <Pressable onPress={()=>{
+            console.log(email,password)
+        }} style={{backgroundColor:'black'}}>
+            <Text style={{color:'white',textAlign:'center',padding:10,borderRadius:40}}>Submit</Text>
+        </Pressable>
+        
       </ScrollView>
     </SafeAreaView>
   )
