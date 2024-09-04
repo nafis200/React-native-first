@@ -28,7 +28,7 @@ const Form = () => {
         }}
         />
         <View style={{flex: 1, direction:'row',alignItems:'center'}}>
-        <Switch style={{marginRight:300,backgroundColor:'green'}}
+        <Switch style={{marginRight:300,backgroundColor:'green',justifyContent:'center'}}
         trackColor={{false: 'blue', true: 'red'}}
         thumbColor={isEnabled ? 'pink' : 'sky'}
         ios_backgroundColor="#3e3e3e"
