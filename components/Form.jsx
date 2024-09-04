@@ -32,7 +32,9 @@ const Form = () => {
 
         <Pressable onPress={()=>{
             console.log(email,password)
-        }} style={{backgroundColor:'black'}}>
+        }} style={[{backgroundColor:'black'},(email.length === 0 || password.length < 6) && {opacity:0.5}]}
+        disabled={email.length === 0 || password.length < 6}
+        >
             <Text style={{color:'white',textAlign:'center',padding:10,borderRadius:40}}>Submit</Text>
         </Pressable>
         
