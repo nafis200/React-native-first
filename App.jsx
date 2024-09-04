@@ -1,11 +1,11 @@
-import { View, Text} from 'react-native'
+import { View, Text } from 'react-native'
 import React from 'react'
-import Images from './components/Picture'
+import Input from './components/Input'
 
 const App = () => {
   return (
     <View>
-       <Images></Images>
+       <Input></Input>
     </View>
   )
 }
