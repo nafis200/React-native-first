@@ -1,12 +1,11 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import Input from './components/Input'
-import Scroll from './components/Scroll'
+import Form from './components/Form'
 
 const App = () => {
   return (
     <View>
-       <Scroll></Scroll>
+       <Form></Form>
     </View>
   )
 }
