@@ -1,10 +1,14 @@
 
-import { View, Text,SafeAreaView,ScrollView, TextInput, Button,Pressable } from 'react-native'
+import { View, Text,SafeAreaView,ScrollView, TextInput, Button,Pressable,Switch } from 'react-native'
 import React,{useState} from 'react'
 
 const Form = () => {
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
+    const [isEnabled, setIsEnabled] = useState(false);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+
   return (
     <SafeAreaView>
       <ScrollView>
@@ -23,6 +27,16 @@ const Form = () => {
              setPassword(x)
         }}
         />
+        <View style={{flex: 1, direction:'row',alignItems:'center'}}>
+        <Switch style={{marginRight:300,backgroundColor:'green'}}
+        trackColor={{false: 'blue', true: 'red'}}
+        thumbColor={isEnabled ? 'pink' : 'sky'}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+        />
+        <Text>keep me login</Text>
+        </View>
         <View style={{marginTop:10,padding:10}}>
         <Button onPress={()=>{
              console.log(email,password)
@@ -31,7 +45,7 @@ const Form = () => {
         </View>
 
         <Pressable onPress={()=>{
-            console.log(email,password)
+            console.log(email,password,isEnabled)
         }} style={[{backgroundColor:'black'},(email.length === 0 || password.length < 6) && {opacity:0.5}]}
         disabled={email.length === 0 || password.length < 6}
         >
