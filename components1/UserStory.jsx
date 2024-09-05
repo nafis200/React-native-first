@@ -3,9 +3,9 @@ import React from 'react'
 import PropTypes from "prop-types"
 const UserStory = (props) => {
   return (
-    <View style={{marginLeft:5}}>
+    <View style={{marginLeft:10,marginTop:15}}>
       <ScrollView>
-      <Image style={{backgroundColor:'white',borderRadius:100}} source={require('../assets/images/72 - default-profile.png')} />
+      <Image style={{backgroundColor:'white',borderRadius:100,borderWidth:5,borderColor:'#F35BAC'}} source={require('../assets/images/72 - default-profile.png')} />
       <Text>{props.firstName}</Text>
       </ScrollView>
     </View>
