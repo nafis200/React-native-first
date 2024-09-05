@@ -10,7 +10,9 @@ import Userpoststyle from './Userpoststyle'
 const Userpost = (props) => {
   return (
     <View>
-      <View>
+
+
+      <View style={Userpoststyle.userInformationContainer}>
       <View style={Userpoststyle.information}>
       <Image style={{backgroundColor:'white',marginTop:20,borderRadius:100}} source={require('../assets/images/72 - default-profile.png')}/>
       <View style={Userpoststyle.userPostInformation}>
@@ -18,8 +20,10 @@ const Userpost = (props) => {
       {props.location && <Text style={Userpoststyle.location}>{props.location}</Text> }
       </View>
       </View>
-      <FontAwesomeIcon icon={faEllipsis} style={{backgroundColor:'white'}} />
+      <FontAwesomeIcon icon={faEllipsis} size={22} style={{backgroundColor:'white'}} />
       </View>
+
+
       <Image style={{backgroundColor:'white',marginTop:10}} source={require('../assets/images/76 - default-post.png')} />
 
       <View>

@@ -21,6 +21,12 @@ const Userpoststyle = StyleSheet.create({
     },
     userPostInformation:{
         marginLeft: 10,
+    },
+    userInformationContainer:{
+         flex :1,
+         flexDirection: 'row',
+         justifyContent: 'space-between',
+         alignItems: 'center'
     }
 });
 
