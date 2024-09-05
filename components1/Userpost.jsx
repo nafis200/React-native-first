@@ -4,14 +4,19 @@ import React from 'react'
 import PropTypes from "prop-types"
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faBookmark, faComment, faEllipsis, faHeart } from '@fortawesome/free-solid-svg-icons'
+
+import Userpoststyle from './Userpoststyle'
+
 const Userpost = (props) => {
   return (
     <View>
       <View>
-      <View>
-      <Image style={{backgroundColor:'white',marginTop:20}} source={require('../assets/images/72 - default-profile.png')}/>
-      <Text>{props.firstName} {props.lastName} </Text>
-      {props.location && <Text>{props.location}</Text> }
+      <View style={Userpoststyle.information}>
+      <Image style={{backgroundColor:'white',marginTop:20,borderRadius:100}} source={require('../assets/images/72 - default-profile.png')}/>
+      <View style={Userpoststyle.userPostInformation}>
+      <Text style={Userpoststyle.name}>{props.firstName} {props.lastName} </Text>
+      {props.location && <Text style={Userpoststyle.location}>{props.location}</Text> }
+      </View>
       </View>
       <FontAwesomeIcon icon={faEllipsis} style={{backgroundColor:'white'}} />
       </View>

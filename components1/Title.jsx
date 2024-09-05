@@ -96,7 +96,7 @@ const Title = (props) => {
     if (!isLoadingposts) {
       setIsLoadingposts(true);
       const newPageNumber = pageNumber + 1;
-      const newData = pagination(data, newPageNumber, pageSize);
+      const newData = pagination(posts, newPageNumber, pageSize);
       if (newData.length > 0) {
         setRenderDatapost(prev => [...prev, ...newData]);
         setPageNumber(newPageNumber);
