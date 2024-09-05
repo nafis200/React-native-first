@@ -24,18 +24,20 @@ const Userpost = (props) => {
       </View>
 
 
-      <Image style={{backgroundColor:'white',marginTop:10}} source={require('../assets/images/76 - default-post.png')} />
+      <View style={Userpoststyle.containers}>
+      <Image resizeMode='cover' style={{backgroundColor:'white',marginTop:10}} source={require('../assets/images/76 - default-post.png')} />
+      </View>
 
-      <View>
-       <View>
+      <View style={Userpoststyle.userpost}>
+       <View style={Userpoststyle.userbutton}>
        <FontAwesomeIcon style={{backgroundColor:'white'}} icon={faHeart} />
        <Text>{props.likes}</Text>
        </View>
-       <View>
+       <View style={Userpoststyle.userbutton}>
        <FontAwesomeIcon style={{backgroundColor:'white'}} icon={faComment} />
        <Text>{props.comments}</Text>
        </View>
-       <View>
+       <View style={Userpoststyle.userbutton}>
        <FontAwesomeIcon style={{backgroundColor:'white'}} icon={faBookmark} />
        <Text>{props.bookmarks}</Text>
        </View>
