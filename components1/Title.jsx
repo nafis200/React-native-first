@@ -1,9 +1,10 @@
 
 import { View, Text,SafeAreaView, ScrollView, Pressable, FlatList } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from "prop-types"
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import UserStory from './UserStory'
 const Title = (props) => {
   const data = [
     {
@@ -43,6 +44,11 @@ const Title = (props) => {
        id:9,
     },
   ]
+
+  const pageSIze = 4 
+  const [pageNumber,setPageNumber] = useState(1)
+  const [isLoading,setIsLoading] = useState(false)
+  const [renderData, setRenderData] = useState([])
   return (
     <SafeAreaView>
       <ScrollView>
@@ -60,7 +66,12 @@ const Title = (props) => {
       </View>
       <View style={{paddingHorizontal:28}}>
         
-       <FlatList data={data} renderItem={}></FlatList>
+      <FlatList
+        data={data}
+        horizontal={true}
+        renderItem={({item}) => <UserStory firstName={item.firstName} />}
+        keyExtractor={item => item.id}
+      />
 
       </View>
       </ScrollView>
