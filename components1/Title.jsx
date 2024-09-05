@@ -1,10 +1,48 @@
 
-import { View, Text,SafeAreaView, ScrollView, Pressable } from 'react-native'
+import { View, Text,SafeAreaView, ScrollView, Pressable, FlatList } from 'react-native'
 import React from 'react'
 import PropTypes from "prop-types"
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 const Title = (props) => {
+  const data = [
+    {
+       firstName : 'Joseph',
+       id:1,
+    },
+    {
+       firstName : 'Angel',
+       id:2,
+    },
+    {
+       firstName : 'White',
+       id:3,
+    },
+    {
+       firstName : 'Joseph',
+       id:4,
+    },
+    {
+       firstName : 'Angel',
+       id:5,
+    },
+    {
+       firstName : 'White',
+       id:6,
+    },
+    {
+       firstName : 'Joseph',
+       id:7,
+    },
+    {
+       firstName : 'Angel',
+       id:8,
+    },
+    {
+       firstName : 'White',
+       id:9,
+    },
+  ]
   return (
     <SafeAreaView>
       <ScrollView>
@@ -19,6 +57,11 @@ const Title = (props) => {
         <Text style={{fontSize:6,fontWeight:600, lineHeight:7,color:'white'}}>2</Text>
         </View>
       </Pressable>
+      </View>
+      <View style={{paddingHorizontal:28}}>
+        
+       <FlatList data={data} renderItem={}></FlatList>
+
       </View>
       </ScrollView>
     </SafeAreaView>
