@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import UserStory from './UserStory';
+import Userpost from './Userpost';
 
 const Title = (props) => {
   const data = [
@@ -18,15 +19,63 @@ const Title = (props) => {
     { firstName: 'White', id: 9 },
   ];
 
+  const posts = [
+    {
+       firstName : 'alison',
+       lastName: 'becker',
+       location: 'tongi, gazipura sataish',
+       likes: 1201,
+       comments:24,
+       bookmarks:55,
+       id:1
+    },
+    {
+       firstName : 'alison',
+       lastName: 'becker',
+       location: 'tongi, gazipura sataish',
+       likes: 1201,
+       comments:24,
+       bookmarks:55,
+       id:2
+    },
+    {
+       firstName : 'alison',
+       lastName: 'becker',
+       location: 'tongi, gazipura sataish',
+       likes: 1201,
+       comments:24,
+       bookmarks:55,
+       id:3
+    },
+    {
+      firstName : 'alison',
+       lastName: 'becker',
+       location: 'tongi, gazipura sataish',
+       likes: 1201,
+       comments:24,
+       bookmarks:55,
+       id:4
+    }
+  ]
+
   const pageSize = 4;
   const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumberpost, setPageNumberpost] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingposts, setIsLoadingposts] = useState(false);
   const [renderData, setRenderData] = useState(data.slice(0, pageSize));
+  const [renderDatapost, setRenderDatapost] = useState(posts.slice(0, pageSize));
 
-  const pagination = (data, pageNumber, pageSize) => {
+  const pagination = (data, pageNumber, pageSize, posts = false) => {
     let startIndex = (pageNumber - 1) * pageSize;
     if (startIndex >= data.length) {
       return [];
+    }
+    if(!posts){
+      setPageNumber(pageNumber)
+    }
+    else{
+       setPageNumberpost(pageNumber)
     }
     return data.slice(startIndex, startIndex + pageSize);
   };
@@ -41,6 +90,18 @@ const Title = (props) => {
         setPageNumber(newPageNumber);
       }
       setIsLoading(false);
+    }
+  };
+  const loadMoreData1 = () => {
+    if (!isLoadingposts) {
+      setIsLoadingposts(true);
+      const newPageNumber = pageNumber + 1;
+      const newData = pagination(data, newPageNumber, pageSize);
+      if (newData.length > 0) {
+        setRenderDatapost(prev => [...prev, ...newData]);
+        setPageNumber(newPageNumber);
+      }
+      setIsLoadingposts(false);
     }
   };
 
@@ -83,14 +144,27 @@ const Title = (props) => {
             </View>
           </Pressable>
         </View>
-        <View style={{ paddingHorizontal: 28 }}>
+        <View style={{ paddingHorizontal: 28,height:100 }}>
           <FlatList
             keyExtractor={item => item.id.toString()}
             onEndReachedThreshold={0.5}
             onEndReached={loadMoreData}
             data={renderData}
+            showsHorizontalScrollIndicator = {false}
             horizontal={true}
             renderItem={({ item }) => <UserStory firstName={item.firstName} />}
+          />
+        </View>
+        <View style={{marginTop:30, height:'100%',paddingHorizontal:24}}>
+        <FlatList
+            keyExtractor={item => item.id.toString()}
+            onEndReachedThreshold={0.5}
+            onEndReached={loadMoreData1}
+            showsVerticalScrollIndicator = {false}
+            data={renderDatapost}
+            renderItem={({ item }) => <Userpost firstName={item.firstName} lastName = {item.lastName} comments = {item.comments} likes = {item.likes} bookmarks = {item.bookmarks}
+            location = {item.location}
+            />}
           />
         </View>
       </ScrollView>
