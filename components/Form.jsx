@@ -53,6 +53,7 @@ const Form = () => {
         >
             <Text style={{color:'white',textAlign:'center',padding:10,borderRadius:40}}>
               Submit
+              <FontAwesomeIcon icon={faCheck} style={{color:'white',marginLeft:5,height:100}} />
             </Text>
         </Pressable>
         <FontAwesomeIcon icon={faCheck} style={{color:'white',marginLeft:170}} />
