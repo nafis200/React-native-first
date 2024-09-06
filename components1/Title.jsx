@@ -1,10 +1,11 @@
-import { View, Text, SafeAreaView, ScrollView, Pressable, FlatList } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, Pressable, FlatList, Dimensions } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import UserStory from './UserStory';
 import Userpost from './Userpost';
+
 
 const Title = (props) => {
   const data = [
@@ -65,6 +66,16 @@ const Title = (props) => {
   const [isLoadingposts, setIsLoadingposts] = useState(false);
   const [renderData, setRenderData] = useState(data.slice(0, pageSize));
   const [renderDatapost, setRenderDatapost] = useState(posts.slice(0, pageSize));
+
+  const [screendata,setScreenData] = useState(Dimensions.get('screen'))
+
+  useEffect(()=>{
+          
+    Dimensions.addEventListener("change",(result)=>{
+          setScreenData(result.screen)
+    })
+
+  },[])
 
   const pagination = (data, pageNumber, pageSize, posts = false) => {
     let startIndex = (pageNumber - 1) * pageSize;
