@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import UserStory from './UserStory';
 import Userpost from './Userpost';
-
+import { NavigationContainer } from '@react-navigation/native'
 
 const Title = (props) => {
   const data = [
@@ -117,7 +117,8 @@ const Title = (props) => {
   };
 
   return (
-    <SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView>
       <ScrollView>
         <View style={{
           flex: 1, 
@@ -180,6 +181,7 @@ const Title = (props) => {
         </View>
       </ScrollView>
     </SafeAreaView>
+    </NavigationContainer>
   );
 };
 

@@ -1,13 +1,14 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import Form from './components/Form'
-import Title from './components1/Title'
+import { NavigationContainer } from '@react-navigation/native'
+import MainNavigation from './navigation/MainNavigation'
+
 
 const App = () => {
   return (
-    <View>
-       <Title title={"Lets Explore"}></Title>
-    </View>
+      <NavigationContainer>
+         <MainNavigation></MainNavigation>
+      </NavigationContainer>
   )
 }
 
