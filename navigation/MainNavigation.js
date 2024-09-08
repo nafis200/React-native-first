@@ -17,9 +17,10 @@ const MainMenNavigation = ()=>{
 
 const MainNavigation = ()=>{
      return(
-        <Stack.Navigator initialRouteName={"Home"} screenOptions={{header: ()=> null, headerShown:false}}>
-      <Stack.Screen name={"Drawer"} component={MainMenNavigation} />
-      </Stack.Navigator>
+          <Stack.Navigator initialRouteName={"Home"} screenOptions={{header: ()=> null, headerShown:false}}>
+           <Stack.Screen name={"Drawer"} component={MainMenNavigation} />
+          </Stack.Navigator>
+        
     );
 }
 
