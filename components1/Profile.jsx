@@ -33,7 +33,7 @@ const Profile = () => {
        </View>
     </View>
 
-   <View style={{height:'100%'}}>
+   <View style={{height:'180%'}}>
         <ProfileTabNavigation></ProfileTabNavigation>
    </View>
 
