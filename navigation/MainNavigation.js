@@ -6,6 +6,7 @@ import Profile from '../components1/Profile';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Text,View } from 'react-native';
 import Profiletabtitle from '../components1/Profiletabtitle';
+import Last from '../components1/Last';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const ProfileTabs= createMaterialTopTabNavigator();
@@ -45,7 +46,7 @@ export const ProfileTabNavigation = () => {
                zIndex: 0,
           }
           }}>
-               <ProfileTabs.Screen name="Tab1" component={Tab1} options={{
+               <ProfileTabs.Screen name="Tab1" component={Last} options={{
                     tabBarLabel: (focused)=>{
                          return <Profiletabtitle title={"photos"} isFocused ={focused}></Profiletabtitle>
                     }
