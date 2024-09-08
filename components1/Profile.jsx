@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView, ScrollView,Image } from 'react-native'
 import React from 'react'
 import globalStyle from './globalStyle'
 import { horizontalScale } from './Scaling'
+import { ProfileTabNavigation } from '../navigation/MainNavigation'
 
 const Profile = () => {
   return (
@@ -31,6 +32,11 @@ const Profile = () => {
         <Text style={{color:'black',fontSize:20}}>Posts</Text>
        </View>
     </View>
+
+   <View style={{height:'100%'}}>
+        <ProfileTabNavigation></ProfileTabNavigation>
+   </View>
+
       </ScrollView>
     </SafeAreaView>
   )
