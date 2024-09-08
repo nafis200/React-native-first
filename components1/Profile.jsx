@@ -7,9 +7,12 @@ const Profile = () => {
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <ScrollView>
-      <View>
-      <Text style={{backgroundColor:'pink',color:'black'}}>This is Profile</Text>
-      <Image style={{color:'gray',backgroundColor:'gray',borderRadius:100}} source={require("../assets/images/72 - default-profile.png")} />
+      <View style={globalStyle.imageConatiner}>
+       
+       <View style={globalStyle.profileImageContent}>
+       <Image style={{color:'gray',backgroundColor:'gray',borderRadius:100}} source={require("../assets/images/72 - default-profile.png")} />
+       </View>
+
     </View>
       </ScrollView>
     </SafeAreaView>
