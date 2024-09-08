@@ -2,7 +2,7 @@
 
 import { StyleSheet } from 'react-native'
 import React from 'react'
-import { horizontalScale } from './Scaling'
+import { horizontalScale, scaleFontSize, verticalScale } from './Scaling'
 
 const globalStyle = StyleSheet.create({
      backgroundWhite: {
@@ -20,6 +20,21 @@ const globalStyle = StyleSheet.create({
          borderWidth: 1,
          padding: horizontalScale(3),
          borderRadius: horizontalScale(50)
+     },
+     userName:{
+         fontWeight:'600',
+         fontSize:scaleFontSize(20),
+         lineHeight:scaleFontSize(20),
+         color:'black'
+     },
+     userNameConatiner:{
+        flex:1,
+        flexDirection:'row',
+        justifyContent:'center',
+        marginTop:verticalScale(20)
+     },
+     profileStatsContainer:{
+        
      }
 })
 
