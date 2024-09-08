@@ -1,5 +1,5 @@
 
-import { View, Text, SafeAreaView, ScrollView, Pressable, FlatList, Dimensions, StyleSheet } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, Pressable, FlatList, StyleSheet } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -7,7 +7,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import UserStory from './UserStory';
 import Userpost from './Userpost';
 
-const Home = ({ title }) => {
+const Home = (props) => {
   const data = [
     { firstName: 'Joseph', id: 1 },
     { firstName: 'Angel', id: 2 },
@@ -66,24 +66,10 @@ const Home = ({ title }) => {
   const [isLoadingposts, setIsLoadingposts] = useState(false);
   const [renderData, setRenderData] = useState(data.slice(0, pageSize));
   const [renderDatapost, setRenderDatapost] = useState(posts.slice(0, pageSize));
-  const [screendata, setScreenData] = useState(Dimensions.get('screen'));
-
-  useEffect(() => {
-    const handleDimensionChange = ({ screen }) => setScreenData(screen);
-
-    Dimensions.addEventListener('change', handleDimensionChange);
-
-    return () => {
-      Dimensions.removeEventListener('change', handleDimensionChange);
-    };
-  }, []);
 
   const pagination = (data, pageNumber, pageSize) => {
-    let startIndex = (pageNumber - 1) * pageSize;
-    if (startIndex >= data.length) {
-      return [];
-    }
-    return data.slice(startIndex, startIndex + pageSize);
+    const startIndex = (pageNumber - 1) * pageSize;
+    return startIndex >= data.length ? [] : data.slice(startIndex, startIndex + pageSize);
   };
 
   const loadMoreData = () => {
@@ -116,8 +102,8 @@ const Home = ({ title }) => {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.header}>
-          <Text style={styles.title}>{title}</Text>
-          <Pressable style={styles.iconContainer}>
+          {/* <Text style={styles.title}>{title}</Text> */}
+          <Pressable style={styles.iconContainer} onPress={() => props.navigation.navigate('Profile')}>
             <FontAwesomeIcon icon={faEnvelope} style={styles.icon} size={32} />
             <View style={styles.badge}>
               <Text style={styles.badgeText}>2</Text>
@@ -161,6 +147,7 @@ const Home = ({ title }) => {
 
 Home.propTypes = {
   title: PropTypes.string.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 const styles = StyleSheet.create({
@@ -218,4 +205,3 @@ const styles = StyleSheet.create({
 });
 
 export default Home;
-
