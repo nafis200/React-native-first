@@ -18,13 +18,17 @@ const Profile = () => {
           <Text style={globalStyle.userName}>Nafis ahamed</Text>
     </View>
     <View style={globalStyle.profileStatsContainer}>
-       <View>
+       <View style={globalStyle.singleStatContainer}>
         <Text style={{color:'black',fontSize:20}}>45</Text>
         <Text style={{color:'black',fontSize:20}}>Following</Text>
        </View>
-       <View>
+       <View style={globalStyle.singleStatContainer}>
         <Text style={{color:'black',fontSize:20}}>30</Text>
         <Text style={{color:'black',fontSize:20}}>Follwers</Text>
+       </View>
+       <View style={globalStyle.singleStatContainer}>
+        <Text style={{color:'black',fontSize:20}}>100</Text>
+        <Text style={{color:'black',fontSize:20}}>Posts</Text>
        </View>
     </View>
       </ScrollView>

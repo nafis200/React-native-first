@@ -34,7 +34,11 @@ const globalStyle = StyleSheet.create({
         marginTop:verticalScale(20)
      },
      profileStatsContainer:{
-        
+        marginHorizontal:horizontalScale(24),
+        flexDirection:'row' 
+     },
+     singleStatContainer: {
+        paddingHorizontal: horizontalScale(18),
      }
 })
 
